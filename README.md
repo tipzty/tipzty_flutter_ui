@@ -1,3 +1,3 @@
-# Tipzty Flutter UI
+# Tipzty Flutter UI
 
 Package.
