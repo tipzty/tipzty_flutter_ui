@@ -17,6 +17,7 @@ dependencies:
   cupertino_icons: ^1.0.1
   websafe_svg: ^1.1.4
   google_fonts: ^1.1.1
+  cached_network_image: ^2.3.3
 
 dev_dependencies:
   flutter_test:
