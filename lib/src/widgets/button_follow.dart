@@ -5,18 +5,22 @@ import '../../shared/constants.dart';
 
 class ButtonFollow extends StatelessWidget {
   final Function onPressed;
+  final bool following;
 
-  ButtonFollow({this.onPressed});
+  ButtonFollow({this.onPressed, this.following = false});
 
   @override
   Widget build(BuildContext context) {
     return FlatButton(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        hoverColor: Colors.transparent,
         onPressed: onPressed,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-        textColor: primaryColor,
-        color: Color.fromRGBO(227, 211, 252, 1),
+        textColor: textColorBlack,
+        highlightColor: Colors.transparent,
+        splashColor: Colors.transparent,
         child: Container(
-            child: Text("Seguir",
-                style: GoogleFonts.inter(fontWeight: FontWeight.w400))));
+            child: Text(following ? "Siguiendo" : "Seguir",
+                style: GoogleFonts.inter(
+                    fontSize: 16, fontWeight: FontWeight.w500))));
   }
 }

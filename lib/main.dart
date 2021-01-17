@@ -42,15 +42,16 @@ class DesignSystem extends StatelessWidget {
               )),
           Text('ButtonFollow', style: TextStyle(fontSize: 16)),
           ButtonFollow(
+            following: true,
             onPressed: () {},
           ),
           Text('FeedItemHeader', style: TextStyle(fontSize: 16)),
           SizedBox(
             width: 630,
             child: FeedItemHeader(
+              following: false,
               onPressedAvatar: () {},
               onPressedFollow: () {},
-              ocupation: "Maquilladora",
               fullName: "Ana Sofia",
               nickName: "geraldexcellent",
               avatar:

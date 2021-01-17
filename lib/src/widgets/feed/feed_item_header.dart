@@ -72,7 +72,7 @@ class UserFullNameText extends StatelessWidget {
       text,
       textAlign: TextAlign.left,
       style: GoogleFonts.inter(
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: FontWeight.w500,
       ),
     );
@@ -83,9 +83,9 @@ class FeedItemHeader extends StatelessWidget {
   final String fullName;
   final String nickName;
   final String avatar;
-  final String ocupation;
   final Function onPressedFollow;
   final Function onPressedAvatar;
+  final bool following;
 
   FeedItemHeader(
       {this.fullName,
@@ -93,7 +93,7 @@ class FeedItemHeader extends StatelessWidget {
       this.avatar,
       this.onPressedFollow,
       this.onPressedAvatar,
-      this.ocupation});
+      this.following});
 
   @override
   Widget build(BuildContext context) {
@@ -112,35 +112,39 @@ class FeedItemHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              UserFullNameText(fullName),
-              SizedBox(
-                height: 4,
-              ),
               Row(
                 children: [
-                  UserNicknameText("@${nickName}"),
+                  UserFullNameText(fullName),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
+                    padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: TextCircle(
                       color: Colors.grey,
                     ),
                   ),
-                  UserNicknameText(ocupation)
+                  ButtonFollow(
+                    following: following,
+                    onPressed: onPressedFollow,
+                  ),
                 ],
+              ),
+              SizedBox(
+                height: 4,
+              ),
+              Row(
+                children: [UserNicknameText("@${nickName}")],
               ),
             ],
           ),
         ]),
         Row(
           children: [
-            ButtonFollow(
-              onPressed: onPressedFollow,
-            ),
-            Icon(
-              Icons.more_vert,
-              color: Colors.grey[400],
-              size: 32,
-            )
+            IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.more_vert,
+                  color: Colors.grey[400],
+                  size: 32,
+                ))
           ],
         )
       ],
