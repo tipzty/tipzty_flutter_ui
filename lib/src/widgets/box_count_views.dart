@@ -12,7 +12,7 @@ class BoxCountViews extends StatelessWidget {
 
     return ConstrainedBox(
       constraints: new BoxConstraints(
-        maxWidth: 90,
+        maxWidth: 85,
       ),
       child: Container(
         decoration: BoxDecoration(
