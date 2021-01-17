@@ -57,8 +57,18 @@ class DesignSystem extends StatelessWidget {
                   "https://storage.googleapis.com/tipzty_images/users/80c51ee4-3bd3-11eb-bbf0-0242ac110002.png",
             ),
           ),
-          Text('FeedItemHeader', style: TextStyle(fontSize: 16)),
+          Text('BoxCountViews', style: TextStyle(fontSize: 16)),
           BoxCountViews(100000),
+          Text('TopBarIcon', style: TextStyle(fontSize: 16)),
+          TopBarIcon(
+            tooltip: "Mensajes",
+            icon: "message_icon",
+            onTap: () {},
+          ),
+          Text('ButtonCreateReview', style: TextStyle(fontSize: 16)),
+          ButtonCreateReview(
+            onTap: () {},
+          )
         ],
       )),
     );
