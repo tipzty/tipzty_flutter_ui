@@ -1,83 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:google_fonts/google_fonts.dart';
 
-import '../../../shared/constants.dart';
+import 'package:tipzty_flutter_ui/src/widgets/typography/user_fullname.dart';
+import 'package:tipzty_flutter_ui/src/widgets/typography/user_nickname.dart';
+
 import '../../../shelf.dart';
 import '../typography.dart';
-
-class UserImage extends StatelessWidget {
-  final Function onTap;
-  final String image;
-
-  UserImage({this.onTap, this.image});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: onTap,
-      child: Container(
-        height: 42,
-        width: 42,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: primaryColor,
-            style: BorderStyle.solid,
-            width: 2.0,
-          ),
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(30.0),
-        ),
-        child: ClipOval(
-            child: image != ""
-                ? CachedNetworkImage(
-                    imageUrl: image,
-                    placeholder: (_, __) => Center(
-                      child: CupertinoActivityIndicator(
-                        radius: 15,
-                      ),
-                    ),
-                  )
-                : Image.asset("assets/images/user_image.png")),
-      ),
-    );
-  }
-}
-
-class UserNicknameText extends StatelessWidget {
-  final String text;
-
-  UserNicknameText(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: GoogleFonts.inter(
-          fontSize: 12, fontWeight: FontWeight.w400, color: Colors.grey[600]),
-    );
-  }
-}
-
-class UserFullNameText extends StatelessWidget {
-  final String text;
-
-  UserFullNameText(this.text);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      textAlign: TextAlign.left,
-      style: GoogleFonts.inter(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
-    );
-  }
-}
+import '../user_image.dart';
 
 class FeedItemHeader extends StatelessWidget {
   final String fullName;
@@ -114,7 +43,7 @@ class FeedItemHeader extends StatelessWidget {
             children: [
               Row(
                 children: [
-                  UserFullNameText(fullName),
+                  UserFullNameText(text: fullName),
                   Padding(
                     padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                     child: TextCircle(
@@ -131,7 +60,7 @@ class FeedItemHeader extends StatelessWidget {
                 height: 4,
               ),
               Row(
-                children: [UserNicknameText("@${nickName}")],
+                children: [UserNicknameText(text: "@${nickName}")],
               ),
             ],
           ),
