@@ -71,7 +71,11 @@ class DesignSystem extends StatelessWidget {
                 onTap: () {},
               ),
               TextDivider('BoxInputSearch'),
-              BoxInputSearch(),
+              SizedBox(
+                width: 400,
+                height: 44,
+                child: BoxInputSearch(),
+              )
             ],
           )),
     );
