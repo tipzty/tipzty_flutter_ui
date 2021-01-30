@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tipzty_flutter_ui/src/widgets/popup_menu_option.dart';
 
 import 'package:tipzty_flutter_ui/src/widgets/typography/user_fullname.dart';
 import 'package:tipzty_flutter_ui/src/widgets/typography/user_nickname.dart';
@@ -67,13 +68,14 @@ class FeedItemHeader extends StatelessWidget {
         ]),
         Row(
           children: [
-            IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  Icons.more_vert,
-                  color: Colors.grey[400],
-                  size: 32,
-                ))
+            PopupMenuOption()
+            // IconButton(
+            //     onPressed: () {},
+            //     icon: Icon(
+            //       Icons.more_vert,
+            //       color: Colors.grey[400],
+            //       size: 32,
+            //     ))
           ],
         )
       ],

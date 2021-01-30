@@ -8,3 +8,4 @@ export 'src/widgets/button_create_review.dart';
 export 'src/widgets/user_image.dart';
 export 'src/widgets/featured_creators.dart';
 export 'src/widgets/box_input_search.dart';
+export 'src/widgets/popup_menu_option.dart';
