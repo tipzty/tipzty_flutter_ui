@@ -5,6 +5,3 @@ export 'src/widgets/feed/feed_item_header.dart';
 export 'src/widgets/box_count_views.dart';
 export 'src/widgets/top_bar_icon.dart';
 export 'src/widgets/button_create_review.dart';
-export 'src/widgets/user_image.dart';
-export 'src/widgets/featured_creators.dart';
-export 'src/widgets/box_input_search.dart';
