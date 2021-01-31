@@ -111,7 +111,7 @@ class FeedItemHeader extends StatelessWidget {
                 Row(
                   children: [
                     UserFullNameText(fullName),
-                    Padding(
+                    Container(
                       padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: TextCircle(color: Colors.grey),
                     ),
@@ -121,7 +121,6 @@ class FeedItemHeader extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(height: 4),
                 Row(children: [UserNicknameText("@$nickName")]),
               ],
             ),
