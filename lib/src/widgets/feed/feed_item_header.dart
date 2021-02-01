@@ -112,7 +112,7 @@ class FeedItemHeader extends StatelessWidget {
                   children: [
                     UserFullNameText(fullName),
                     Container(
-                      padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
+                      // padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
                       child: TextCircle(color: Colors.grey),
                     ),
                     ButtonFollow(
