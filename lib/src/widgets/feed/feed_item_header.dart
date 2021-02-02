@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../shared/constants.dart';
 import '../../../shelf.dart';
-import '../typography.dart';
 
 class UserImage extends StatelessWidget {
   final Function onTap;
@@ -145,7 +144,7 @@ class FeedItemHeader extends StatelessWidget {
               onPressed: () {},
               icon: Icon(
                 Icons.more_vert,
-                color: Colors.black,
+                color: Color.fromRGBO(59, 72, 89, 1.0),
                 size: 28,
               ),
             ),
