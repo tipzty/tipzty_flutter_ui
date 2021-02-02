@@ -109,19 +109,32 @@ class FeedItemHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    UserFullNameText(fullName),
-                    Container(
-                      // padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: TextCircle(color: Colors.grey),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        UserFullNameText(fullName),
+                        UserNicknameText("@$nickName"),
+                      ],
                     ),
+                    SizedBox(width: 10),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(3.0),
+                      child: Container(
+                        width: 6.0,
+                        height: 6.0,
+                        color: Color.fromRGBO(92, 92, 92, 1.0),
+                      ),
+                    ),
+                    SizedBox(width: 10),
                     ButtonFollow(
                       following: following,
                       onPressed: onPressedFollow,
                     ),
                   ],
                 ),
-                Row(children: [UserNicknameText("@$nickName")]),
               ],
             ),
           ],
