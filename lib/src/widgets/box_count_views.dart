@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class BoxCountViews extends StatelessWidget {
   final int count;
+  bool isMobile = true;
 
-  BoxCountViews(this.count);
+  BoxCountViews(this.count, this.isMobile);
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +19,13 @@ class BoxCountViews extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(4)),
+        borderRadius: BorderRadius.circular(5.0),
         color: Colors.black45,
       ),
-      margin: EdgeInsets.only(top: 20, left: 20),
+      margin: EdgeInsets.only(
+        top: isMobile ? 20.0 : 0.0,
+        left: isMobile ? 20.0 : 0.0,
+      ),
       padding: EdgeInsets.all(5),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,

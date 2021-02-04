@@ -129,6 +129,12 @@ class FeedItemHeader extends StatelessWidget {
                     ),
                     SizedBox(width: 10),
                     ButtonFollow(
+                      color: Color.fromRGBO(142, 80, 251, 0.25),
+                      hoverColor: Color.fromRGBO(142, 80, 251, 0.35),
+                      highlightColor: Color.fromRGBO(142, 80, 251, 0.35),
+                      splashColor: Color.fromRGBO(142, 80, 251, 0.45),
+                      textColor: Color.fromRGBO(144, 81, 253, 1.0),
+                      textSize: 14.0,
                       following: following,
                       onPressed: onPressedFollow,
                     ),
