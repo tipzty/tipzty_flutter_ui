@@ -7,8 +7,18 @@ class ButtonPrimary extends StatelessWidget {
   final String text;
   final Function onPressed;
   final bool ghost;
+  final double fontSize;
+  final double borderRadius;
+  final FontWeight fontWeight;
 
-  const ButtonPrimary({this.text, this.onPressed, this.ghost = false});
+  const ButtonPrimary({
+    this.text,
+    this.onPressed,
+    this.ghost = false,
+    this.fontSize = 12,
+    this.borderRadius = 6.0,
+    this.fontWeight = FontWeight.w600,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,16 +27,23 @@ class ButtonPrimary extends StatelessWidget {
       elevation: 0,
       padding: const EdgeInsets.only(left: 30, right: 30),
       shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(6.0),
-          side: BorderSide(
-              width: 1,
-              color: ghost ? primaryColorDark : Colors.transparent,
-              style: BorderStyle.solid)),
+        borderRadius: BorderRadius.circular(borderRadius),
+        side: BorderSide(
+          width: 1,
+          color: ghost ? primaryColorDark : Colors.transparent,
+          style: BorderStyle.solid,
+        ),
+      ),
       onPressed: onPressed,
       color: ghost ? Colors.transparent : primaryColorDark,
       textColor: ghost ? primaryColorDark : Colors.white,
-      child: Text(text,
-          style: GoogleFonts.inter(fontSize: 12, fontWeight: FontWeight.w700)),
+      child: Text(
+        text,
+        style: GoogleFonts.inter(
+          fontSize: fontSize,
+          fontWeight: fontWeight,
+        ),
+      ),
     );
   }
 }
