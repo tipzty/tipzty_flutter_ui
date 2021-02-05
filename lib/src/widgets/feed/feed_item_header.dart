@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../../../shared/constants.dart';
 import '../../../shelf.dart';
-import '../typography.dart';
 
 class UserImage extends StatelessWidget {
   final Function onTap;
@@ -109,19 +108,38 @@ class FeedItemHeader extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    UserFullNameText(fullName),
-                    Container(
-                      // padding: EdgeInsets.fromLTRB(10, 0, 0, 0),
-                      child: TextCircle(color: Colors.grey),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        UserFullNameText(fullName),
+                        UserNicknameText("@$nickName"),
+                      ],
                     ),
+                    SizedBox(width: 10),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(3.0),
+                      child: Container(
+                        width: 6.0,
+                        height: 6.0,
+                        color: Color.fromRGBO(92, 92, 92, 1.0),
+                      ),
+                    ),
+                    SizedBox(width: 10),
                     ButtonFollow(
+                      color: Color.fromRGBO(142, 80, 251, 0.25),
+                      hoverColor: Color.fromRGBO(142, 80, 251, 0.35),
+                      highlightColor: Color.fromRGBO(142, 80, 251, 0.35),
+                      splashColor: Color.fromRGBO(142, 80, 251, 0.45),
+                      textColor: Color.fromRGBO(144, 81, 253, 1.0),
+                      textSize: 14.0,
                       following: following,
                       onPressed: onPressedFollow,
                     ),
                   ],
                 ),
-                Row(children: [UserNicknameText("@$nickName")]),
               ],
             ),
           ],
@@ -132,7 +150,7 @@ class FeedItemHeader extends StatelessWidget {
               onPressed: () {},
               icon: Icon(
                 Icons.more_vert,
-                color: Colors.black,
+                color: Color.fromRGBO(59, 72, 89, 1.0),
                 size: 28,
               ),
             ),

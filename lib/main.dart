@@ -23,6 +23,8 @@ class MyApp extends StatelessWidget {
 class DesignSystem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final bool isIphone6 = MediaQuery.of(context).size.width < 420.0;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Tipzty UI'),
@@ -59,7 +61,7 @@ class DesignSystem extends StatelessWidget {
             ),
           ),
           Text('BoxCountViews', style: TextStyle(fontSize: 16)),
-          BoxCountViews(100000),
+          BoxCountViews(100000, isIphone6),
           Text('TopBarIcon', style: TextStyle(fontSize: 16)),
           TopBarIcon(
             tooltip: "Mensajes",

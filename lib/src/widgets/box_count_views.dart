@@ -2,41 +2,45 @@ import 'package:flutter/material.dart';
 
 class BoxCountViews extends StatelessWidget {
   final int count;
+  bool isMobile = true;
 
-  BoxCountViews(this.count);
+  BoxCountViews(this.count, this.isMobile);
 
   @override
   Widget build(BuildContext context) {
-    var views = count >= 1000 ? (count / 1000).toString() + "K" : count;
-    views = count >= 1000000 ? (count / 1000000).toString() + "M" : views;
+    final bool isK = count >= 1000;
+    final bool isM = count >= 1000000;
 
-    return ConstrainedBox(
-      constraints: new BoxConstraints(
-        maxWidth: 85,
+    String countParser = '0';
+
+    //  The symbol "~/" generates a division calculation as an integer and not as a decimal.
+    countParser = isK ? (count ~/ 1000).toString() + "K" : count.toString();
+    countParser = isM ? (count ~/ 1000000).toString() + "M" : countParser;
+
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5.0),
+        color: Colors.black45,
       ),
-      child: Container(
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(4)),
-            color: Colors.black45),
-        margin: const EdgeInsets.only(top: 20, left: 20),
-        padding: const EdgeInsets.all(5),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(
-              Icons.remove_red_eye_sharp,
-              size: 15,
-              color: Colors.white,
-            ),
-            SizedBox(
-              width: 5,
-            ),
-            Text(
-              '${views}',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
+      margin: EdgeInsets.only(
+        top: isMobile ? 20.0 : 0.0,
+        left: isMobile ? 20.0 : 0.0,
+      ),
+      padding: EdgeInsets.all(5),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.remove_red_eye_sharp,
+            size: 15,
+            color: Colors.white,
+          ),
+          SizedBox(width: 5),
+          Text(
+            countParser,
+            style: TextStyle(color: Colors.white),
+          ),
+        ],
       ),
     );
   }
