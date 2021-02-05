@@ -18,8 +18,9 @@ class UserImage extends StatelessWidget {
       behavior: HitTestBehavior.translucent,
       onTap: onTap,
       child: Container(
-        height: 42,
-        width: 42,
+        height: 44,
+        width: 44,
+        padding: const EdgeInsets.all(2),
         decoration: BoxDecoration(
           border: Border.all(
             color: primaryColor,
@@ -29,17 +30,28 @@ class UserImage extends StatelessWidget {
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(30.0),
         ),
-        child: ClipOval(
-            child: image != ""
-                ? CachedNetworkImage(
-                    imageUrl: image,
-                    placeholder: (_, __) => Center(
-                      child: CupertinoActivityIndicator(
-                        radius: 15,
+        child: Container(
+          decoration: BoxDecoration(
+            border: Border.all(
+              color: Colors.white,
+              style: BorderStyle.solid,
+              width: 1,
+            ),
+            color: Colors.transparent,
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+          child: ClipOval(
+              child: image != ""
+                  ? CachedNetworkImage(
+                      imageUrl: image,
+                      placeholder: (_, __) => Center(
+                        child: CupertinoActivityIndicator(
+                          radius: 15,
+                        ),
                       ),
-                    ),
-                  )
-                : Image.asset("assets/images/user_image.png")),
+                    )
+                  : Image.asset("assets/images/user_image.png")),
+        ),
       ),
     );
   }
@@ -55,25 +67,45 @@ class UserNicknameText extends StatelessWidget {
     return Text(
       text,
       style: GoogleFonts.inter(
-          fontSize: 12, fontWeight: FontWeight.w400, color: Colors.grey[600]),
+          fontSize: 13, fontWeight: FontWeight.w400, color: Colors.grey[600]),
     );
   }
 }
 
 class UserFullNameText extends StatelessWidget {
   final String text;
+  final bool following;
 
-  UserFullNameText(this.text);
+  UserFullNameText(this.text, this.following);
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      textAlign: TextAlign.left,
-      style: GoogleFonts.inter(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-      ),
+    return Row(
+      children: [
+        Text(
+          text,
+          textAlign: TextAlign.left,
+          style: GoogleFonts.inter(
+            fontSize: 19,
+            fontWeight: FontWeight.w500,
+          ),
+        ),
+        SizedBox(width: 10),
+        ClipRRect(
+          borderRadius: BorderRadius.circular(3.0),
+          child: Container(
+            width: 6.0,
+            height: 6.0,
+            color: Color.fromRGBO(92, 92, 92, 1.0),
+          ),
+        ),
+        ButtonFollow(
+          textColor: Color.fromRGBO(144, 81, 253, 1.0),
+          textSize: 19.0,
+          following: following,
+          onPressed: () {},
+        )
+      ],
     );
   }
 }
@@ -105,7 +137,7 @@ class FeedItemHeader extends StatelessWidget {
             SizedBox(width: 10),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -114,27 +146,9 @@ class FeedItemHeader extends StatelessWidget {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        UserFullNameText(fullName),
+                        UserFullNameText(fullName, following),
                         UserNicknameText("@$nickName"),
                       ],
-                    ),
-                    SizedBox(width: 10),
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(3.0),
-                      child: Container(
-                        width: 6.0,
-                        height: 6.0,
-                        color: Color.fromRGBO(92, 92, 92, 1.0),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    ButtonFollow(
-                      textColor: following
-                          ? Colors.black
-                          : Color.fromRGBO(144, 81, 253, 1.0),
-                      textSize: 19.0,
-                      following: following,
-                      onPressed: onPressedFollow,
                     ),
                   ],
                 ),
