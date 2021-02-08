@@ -101,7 +101,7 @@ class UserFullNameText extends StatelessWidget {
         ),
         ButtonFollow(
           textColor: Color.fromRGBO(144, 81, 253, 1.0),
-          textSize: 19.0,
+          textSize: 15.0,
           following: following,
           onPressed: () {},
         )
