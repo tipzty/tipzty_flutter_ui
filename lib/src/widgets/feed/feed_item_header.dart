@@ -86,7 +86,7 @@ class UserFullNameText extends StatelessWidget {
           text,
           textAlign: TextAlign.left,
           style: GoogleFonts.inter(
-            fontSize: 19,
+            fontSize: 15,
             fontWeight: FontWeight.w500,
           ),
         ),
@@ -147,7 +147,9 @@ class FeedItemHeader extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         UserFullNameText(fullName, following),
-                        UserNicknameText("@$nickName"),
+                        Transform.translate(
+                            offset: Offset(0, -3),
+                            child: UserNicknameText("@$nickName")),
                       ],
                     ),
                   ],
