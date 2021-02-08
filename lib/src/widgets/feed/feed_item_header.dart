@@ -111,6 +111,7 @@ class UserFullNameText extends StatelessWidget {
 }
 
 class FeedItemHeader extends StatelessWidget {
+  final bool isMobile;
   final String fullName;
   final String nickName;
   final String avatar;
@@ -124,7 +125,8 @@ class FeedItemHeader extends StatelessWidget {
       this.avatar,
       this.onPressedFollow,
       this.onPressedAvatar,
-      this.following});
+      this.following,
+      this.isMobile});
 
   @override
   Widget build(BuildContext context) {
@@ -148,7 +150,7 @@ class FeedItemHeader extends StatelessWidget {
                       children: [
                         UserFullNameText(fullName, following),
                         Transform.translate(
-                            offset: Offset(0, -3),
+                            offset: isMobile ? Offset(0, -8) : Offset(0, -3),
                             child: UserNicknameText("@$nickName")),
                       ],
                     ),
