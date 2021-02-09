@@ -132,6 +132,7 @@ class FeedItemHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
           children: [
@@ -160,17 +161,13 @@ class FeedItemHeader extends StatelessWidget {
             ),
           ],
         ),
-        Row(
-          children: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(
-                Icons.more_vert,
-                color: Color.fromRGBO(59, 72, 89, 1.0),
-                size: 28,
-              ),
-            ),
-          ],
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.more_vert,
+            color: Color.fromRGBO(59, 72, 89, 1.0),
+            size: 28,
+          ),
         ),
       ],
     );
