@@ -90,12 +90,12 @@ class UserFullNameText extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
-        SizedBox(width: 10),
+        SizedBox(width: 5),
         ClipRRect(
           borderRadius: BorderRadius.circular(3.0),
           child: Container(
-            width: 6.0,
-            height: 6.0,
+            width: 4.0,
+            height: 4.0,
             color: Color.fromRGBO(92, 92, 92, 1.0),
           ),
         ),
