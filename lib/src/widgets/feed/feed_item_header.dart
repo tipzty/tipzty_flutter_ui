@@ -82,12 +82,16 @@ class UserFullNameText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(
-          text,
-          textAlign: TextAlign.left,
-          style: GoogleFonts.inter(
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
+        Expanded(
+          child: Text(
+            text,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            textAlign: TextAlign.left,
+            style: GoogleFonts.inter(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ),
         SizedBox(width: 5),
