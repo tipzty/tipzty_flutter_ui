@@ -34,7 +34,7 @@ class _TopBarIcon extends State<TopBarIcon> {
         },
         child: Tooltip(
           message: widget.tooltip,
-          child: WebsafeSvg.asset("assets/icons/${widget.icon}.svg",
+          child: Image.asset("assets/images/${widget.icon}.png",
               color: _onHover ? primaryColor : Colors.black,
               height: 26,
               width: 26),
