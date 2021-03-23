@@ -19,7 +19,7 @@ class BoxCountViews extends StatelessWidget {
 
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5.0),
+        borderRadius: BorderRadius.circular(24.0),
         color: Colors.black45,
       ),
       margin: EdgeInsets.only(
