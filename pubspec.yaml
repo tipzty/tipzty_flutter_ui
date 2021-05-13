@@ -15,9 +15,9 @@ dependencies:
     sdk: flutter # Add this line
 
   cupertino_icons: ^1.0.1
-  websafe_svg: ^1.1.4
-  google_fonts: ^1.1.1
-  cached_network_image: ^2.3.3
+  websafe_svg: ^2.0.0
+  google_fonts: ^2.0.0
+  cached_network_image: ^3.0.0
 
 dev_dependencies:
   flutter_test:
